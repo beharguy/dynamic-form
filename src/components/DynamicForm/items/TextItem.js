@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
+import StyledFormItem from '../../StyledComponents/StyledFormItem';
+
 export default class TextItem extends Component {
 
   static propTypes = {
@@ -22,10 +24,12 @@ export default class TextItem extends Component {
   };
 
   render() {
-    const {  value, placeholder } = this.props;
+    const { name, value, placeholder } = this.props;
 
     return (
-      <input type="text" placeholder={placeholder} value={value} onChange={this.handleChange} />
+      <StyledFormItem gridArea={name}>
+        <input type="text" placeholder={placeholder} value={value} onChange={this.handleChange} />
+      </StyledFormItem>
     );
   }
 

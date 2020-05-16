@@ -2,6 +2,10 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { FormItem } from './index';
 
+import { getGridTemplateAreas } from '../../../utils/grid';
+
+import StyledFormItem from '../../StyledComponents/StyledFormItem';
+
 export default class ObjectItem extends Component {
 
   static propTypes = {
@@ -23,9 +27,14 @@ export default class ObjectItem extends Component {
   };
 
   render() {
-    const { items } = this.props;
+    const { name, gridTemplateColumns, gridTemplateAreas, items } = this.props;
 
-    return items.map(this.renderItem);
+    return <StyledFormItem gridArea={name}
+      gridTemplateColumns={gridTemplateColumns}
+      gridTemplateAreas={getGridTemplateAreas({ gridTemplateAreas, items })}
+    >
+      {items.map(this.renderItem)}
+    </StyledFormItem>;
   }
 
 }

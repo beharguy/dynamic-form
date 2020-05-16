@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
+import StyledFormItem from '../../StyledComponents/StyledFormItem';
+
 export default class CheckboxItem extends Component {
 
   static propTypes = {
@@ -21,10 +23,12 @@ export default class CheckboxItem extends Component {
   };
 
   render() {
-    const { value } = this.props;
+    const { name, value } = this.props;
 
     return (
-      <input type="checkbox" checked={value} onChange={this.handleChange} />
+      <StyledFormItem gridArea={name}>
+        <input type="checkbox" checked={value} onChange={this.handleChange} />
+      </StyledFormItem>
     );
   }
 

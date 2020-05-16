@@ -2,12 +2,17 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { FormItem } from './items';
 
+import { getGridTemplateAreas } from '../../utils/grid';
+
+import StyledForm from '../StyledComponents/StyledForm';
 export default class SchemaForm extends Component {
 
   static propTypes = {
     path: PropTypes.array,
     items: PropTypes.array,
     data: PropTypes.object,
+    gridTemplateAreas: PropTypes.string,
+    gridTemplateColumns: PropTypes.string,
     onChange: PropTypes.func
   };
 
@@ -34,11 +39,12 @@ export default class SchemaForm extends Component {
   };
 
   render() {
-    const { items } = this.props;
+    const { items, gridTemplateAreas, gridTemplateColumns } = this.props;
+    const computedGridTemplateAreas = gridTemplateAreas ? gridTemplateAreas : getGridTemplateAreas(this.props);
 
-    return <div>
+    return <StyledForm gridTemplateAreas={computedGridTemplateAreas} gridTemplateColumns={gridTemplateColumns}>
       {this.renderItems(items)}
-    </div>;
+    </StyledForm>;
   }
 
 }
