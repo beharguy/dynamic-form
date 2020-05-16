@@ -1,21 +1,42 @@
+import React from 'react';
 import styled, { css } from 'styled-components'
 
-export default styled.div`
+const StyledFormItemDiv = styled.div`
   display: grid;
-  
+  align-items: center;
+
   ${props => props.gridArea && css`
     grid-area: ${props.gridArea};
   `}
 
-  grid-template-rows: auto;
-
-  ${props => props.gridTemplateColumns ? css`
-    grid-template-columns: ${props.gridTemplateColumns};
+  ${props => props.inline ? css`
+    grid-template-areas: "content label";
+    grid-template-columns: auto 1fr;
   ` : css`
-    grid-template-columns: 1fr;
+    grid-template-areas: 
+      "label"
+      "content";
+  `} 
+`;
+
+const StyledFormItemLabel = styled.label`
+  display: grid;
+  align-items: center;
+
+  ${props => props.gridArea && css`
+    grid-area: ${props.gridArea};
   `}
 
-  ${props => props.gridTemplateAreas && css`
-    grid-template-areas: ${props.gridTemplateAreas};
-  `}
+  ${props => props.inline ? css`
+    grid-template-areas: "content label";
+    grid-template-columns: auto 1fr;
+  ` : css`
+    grid-template-areas: 
+      "label"
+      "content";
+  `} 
 `;
+
+export default function StyledFormItem(props) {
+  return props.inline ? <StyledFormItemLabel {...props} /> : <StyledFormItemDiv {...props} />;
+};

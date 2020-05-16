@@ -2,11 +2,13 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
 import StyledFormItem from '../../StyledComponents/StyledFormItem';
+import StyledFormItemLabel from '../../StyledComponents/StyledFormItemLabel';
+import StyledFormItemContent from '../../StyledComponents/StyledFormItemContent';
 
 export default class CheckboxItem extends Component {
 
   static propTypes = {
-    title: PropTypes.string,
+    label: PropTypes.string,
     value: PropTypes.bool,
     onChange: PropTypes.func
   };
@@ -23,11 +25,16 @@ export default class CheckboxItem extends Component {
   };
 
   render() {
-    const { name, value } = this.props;
+    const { name, label, value } = this.props;
 
     return (
-      <StyledFormItem gridArea={name}>
-        <input type="checkbox" checked={value} onChange={this.handleChange} />
+      <StyledFormItem gridArea={name} inline>
+        <StyledFormItemLabel>
+          {label}
+        </StyledFormItemLabel>
+        <StyledFormItemContent>
+          <input type="checkbox" checked={value} onChange={this.handleChange} />
+        </StyledFormItemContent>
       </StyledFormItem>
     );
   }

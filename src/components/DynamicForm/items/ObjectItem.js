@@ -5,6 +5,8 @@ import { FormItem } from './index';
 import { getGridTemplateAreas } from '../../../utils/grid';
 
 import StyledFormItem from '../../StyledComponents/StyledFormItem';
+import StyledFormItemLabel from '../../StyledComponents/StyledFormItemLabel';
+import StyledFormItemContent from '../../StyledComponents/StyledFormItemContent';
 
 export default class ObjectItem extends Component {
 
@@ -27,14 +29,21 @@ export default class ObjectItem extends Component {
   };
 
   render() {
-    const { name, gridTemplateColumns, gridTemplateAreas, items } = this.props;
+    const { name, label, gridTemplateColumns, gridTemplateAreas, items } = this.props;
 
-    return <StyledFormItem gridArea={name}
-      gridTemplateColumns={gridTemplateColumns}
-      gridTemplateAreas={getGridTemplateAreas({ gridTemplateAreas, items })}
-    >
-      {items.map(this.renderItem)}
-    </StyledFormItem>;
+    return (
+      <StyledFormItem gridArea={name}>
+        <StyledFormItemLabel>
+          {label}
+        </StyledFormItemLabel>
+        <StyledFormItemContent
+          gridTemplateColumns={gridTemplateColumns}
+          gridTemplateAreas={getGridTemplateAreas({ gridTemplateAreas, items })}
+        >
+          {items.map(this.renderItem)}
+        </StyledFormItemContent>
+      </StyledFormItem>
+    );
   }
 
 }

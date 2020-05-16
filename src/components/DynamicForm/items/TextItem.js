@@ -2,11 +2,13 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
 import StyledFormItem from '../../StyledComponents/StyledFormItem';
+import StyledFormItemLabel from '../../StyledComponents/StyledFormItemLabel';
+import StyledFormItemContent from '../../StyledComponents/StyledFormItemContent';
 
 export default class TextItem extends Component {
 
   static propTypes = {
-    title: PropTypes.string,
+    label: PropTypes.string,
     value: PropTypes.string,
     placeholder: PropTypes.string,
     onChange: PropTypes.func
@@ -24,11 +26,16 @@ export default class TextItem extends Component {
   };
 
   render() {
-    const { name, value, placeholder } = this.props;
+    const { name, label, value, placeholder } = this.props;
 
     return (
       <StyledFormItem gridArea={name}>
-        <input type="text" placeholder={placeholder} value={value} onChange={this.handleChange} />
+        <StyledFormItemLabel>
+          {label}
+        </StyledFormItemLabel>
+        <StyledFormItemContent>
+          <input type="text" placeholder={placeholder} value={value} onChange={this.handleChange} />
+        </StyledFormItemContent>
       </StyledFormItem>
     );
   }

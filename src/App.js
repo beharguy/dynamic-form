@@ -15,13 +15,13 @@ class App extends Component {
     // `,
     // gridTemplateColumns: '1fr 1fr',
     items: [
-      { name: 'firstName', type: types.TEXT, title: 'First Name', placeholder: 'First Name' },
-      { name: 'lastName', type: types.TEXT, title: 'Last Name', placeholder: 'Last Name' },
-      { name: 'agree', type: types.BOOLEAN, title: 'Agree' },
+      { name: 'firstName', type: types.TEXT, label: 'First Name', placeholder: 'First Name' },
+      { name: 'lastName', type: types.TEXT, label: 'Last Name', placeholder: 'Last Name' },
+      { name: 'agree', type: types.BOOLEAN, label: 'Agree' },
       {
-        name: 'address', type: types.OBJECT, title: 'Address', items: [
-          { name: 'city', type: types.TEXT, title: 'City', placeholder: 'City' },
-          { name: 'street', type: types.TEXT, title: 'Street', placeholder: 'Street' }
+        name: 'address', type: types.OBJECT, label: 'Address', items: [
+          { name: 'city', type: types.TEXT, label: 'City', placeholder: 'City' },
+          { name: 'street', type: types.TEXT, label: 'Street', placeholder: 'Street' }
         ],
         gridTemplateColumns: '1fr 1fr',
         gridTemplateAreas: `"city street"`

@@ -1,13 +1,10 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import * as types from '../consts/types';
-import { getGridTemplateAreas } from '../../../utils/grid';
 
 import TextItem from './TextItem';
 import CheckboxItem from './CheckboxItem';
 import ObjectItem from './ObjectItem';
-
-import StyledFormItem from '../../StyledComponents/StyledFormItem';
 
 export class FormItem extends Component {
 
